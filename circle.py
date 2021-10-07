@@ -2,11 +2,7 @@ from manim import *
 
 class TwoCircles(Scene):
     def construct(self):
-        axes = Axes(
-            # x_range=[-50,10],
-            # y_range=[-10,10],
-            # tips=False,
-        )
+        axes = ComplexPlane()
 
         circle1 = Circle(radius=1.4,color=RED)
         circle1.shift(RIGHT*2)
