@@ -21,5 +21,5 @@ class TwoCircles(Scene):
         self.wait(0.5)
         self.play(Create(circle2))
         self.wait(1)
-        self.play(Transform(circle1,circle3),Transform(circle2,circle4), run_time=4, rate_func=linear)
+        self.play(Transform(circle1,circle3),Transform(circle2,circle4), run_time=6, rate_func=there_and_back_with_pause)
         self.wait(1)
