@@ -2,7 +2,8 @@ from manim import *
 
 class TwoCircles(Scene):
     def construct(self):
-        axes = ComplexPlane()
+        axes = ComplexPlane().add_coordinates()
+
 
         circle1 = Circle(radius=1.4,color=RED)
         circle1.shift(RIGHT*2)
@@ -16,7 +17,9 @@ class TwoCircles(Scene):
         circle4 = Circle(radius=5,color=BLUE)
         circle4.shift(UP*2)
 
-        self.add(axes)
+        line1 = Line(start=([-3,-3,0]),end=([3,3,0]))
+
+        self.add(axes,line1)
         self.play(Create(circle1))  # show the circle on screen
         self.wait(0.5)
         self.play(Create(circle2))
