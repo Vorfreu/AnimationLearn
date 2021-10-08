@@ -41,20 +41,28 @@ class TwoCircles(Scene):
 
         linepath = Line([1,1,0],[2,2,0])
 
-        line1 = Line(start=[1,1,0],end=[-2.45,-2.45,0],color=PURPLE_A)
-        line2 = Line(start=[1,1,0],end=[4.45,4.45,0],color=PURPLE_B)
+        line1 = Line(start=[1,1,0],end=[-2.40,-2.40,0],color=PURPLE_A)
+        line2 = Line(start=[1,1,0],end=[4.40,4.40,0],color=PURPLE_B)
 
         line11 = Line(start=[2,2,0],end=[-5,-5,0],color=PURPLE_A)
         line22 = Line(start=[2,2,0],end=[10,10,0],color=PURPLE_B)
 
-        line111 = Line(start=[0,1,0],end=[-3.45,-2.45,0],color=PURPLE_A)
-        line222 = Line(start=[0,1,0],end=[3.45,4.45,0],color=PURPLE_B)
+        line111 = Line(start=[0,1,0],end=[-3.40,-2.40,0],color=PURPLE_A)
+        line222 = Line(start=[0,1,0],end=[3.40,4.40,0],color=PURPLE_B)
+
+        frame = PictureInPictureFrame(height=2,aspect_ratio=3,fill_opacity=1).shift(LEFT*4).shift(UP*2)
+
+        equation1 = Text('{z} = {z}',color=BLACK).shift(LEFT*4).shift(UP*2)
+
 
         self.play(Create(axes), run_time=3)
         self.play(Create(circle1))
         self.wait(0.5)
         self.play(Create(circle2))
         self.wait(1)
+        self.play(Create(frame))
+        self.wait(1)
+        self.play(Write(equation1))
         self.play(Create(dot))
         self.wait(0.5)
         self.play(Transform(circle1,circle3),Transform(circle2,circle4),Create(line1),Create(line2), run_time=6, rate_func=there_and_back_with_pause)
@@ -74,3 +82,7 @@ class TwoCircles(Scene):
         self.play(Create(Dot([0,1,0],color=PURPLE)))
         self.play(Transform(circle1,Circle(radius=5,color=RED).shift(RIGHT)),Transform(circle2,Circle(radius=5,color=BLUE).shift(LEFT,UP*2)),Create(line111),Create(line222),run_time=6, rate_func=there_and_back_with_pause)
         self.wait(2)
+
+
+
+        # self.play(Create(frame = PictureInPictureFrame().shift(LEFT*4).shift(UP*4)))
