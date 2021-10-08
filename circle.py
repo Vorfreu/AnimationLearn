@@ -47,6 +47,9 @@ class TwoCircles(Scene):
         line11 = Line(start=[2,2,0],end=[-5,-5,0],color=PURPLE_A)
         line22 = Line(start=[2,2,0],end=[10,10,0],color=PURPLE_B)
 
+        line111 = Line(start=[0,1,0],end=[-3.45,-2.45,0],color=PURPLE_A)
+        line222 = Line(start=[0,1,0],end=[3.45,4.45,0],color=PURPLE_B)
+
         self.play(Create(axes), run_time=3)
         self.play(Create(circle1))
         self.wait(0.5)
@@ -69,5 +72,5 @@ class TwoCircles(Scene):
         self.play(circle1.animate.shift(LEFT),circle2.animate.shift(LEFT))
         self.wait(0.5)
         self.play(Create(Dot([0,1,0],color=PURPLE)))
-        self.play(Transform(circle1,Circle(radius=5,color=RED).shift(RIGHT)),Transform(circle2,Circle(radius=5,color=BLUE).shift(LEFT,UP*2)))
+        self.play(Transform(circle1,Circle(radius=5,color=RED).shift(RIGHT)),Transform(circle2,Circle(radius=5,color=BLUE).shift(LEFT,UP*2)),Create(line111),Create(line222),run_time=6, rate_func=there_and_back_with_pause)
         self.wait(2)
